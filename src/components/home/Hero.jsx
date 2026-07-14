@@ -1,0 +1,199 @@
+import React, { useState } from "react";
+import {
+  Truck,
+  Clock,
+  ShieldCheck,
+  ArrowRight,
+  Sparkles,
+  Check,
+  Layers,
+  Calendar,
+  Droplet
+} from "lucide-react";
+import BookPickupModal from "../layout/BookPickupModal";
+
+export default function Hero() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("wash-fold");
+
+  return (
+    <section className="relative overflow-hidden bg-[#000a1c] min-h-screen flex items-center pt-20 pb-20 lg:pt-22 lg:pb-22">
+      {/* 1. Background Image Layer */}
+      <img
+        src="https://i.pinimg.com/1200x/26/ff/4a/26ff4a6dc1d227876fa40f3c29b6df2b.jpg"
+        alt="Freshly washed and folded laundry background"
+        className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity pointer-events-none"
+      />
+
+      {/* 2. Precision Gradient Mask & tech grid */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#000a1c] via-[#000a1c]/40 to-[#000a1c]/50 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#15408815_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      
+      {/* Radial Ambient Backlight */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#154088]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* LEFT: Premium Editorial Copy */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-[#154088]/20 border border-cyan-500/20 backdrop-blur-md rounded-xl px-3.5 py-1.5 mb-6">
+              {/* <Sparkles size={14} className="text-cyan-400 animate-pulse" /> */}
+              <span className="font-['Nunito'] text-xs font-extrabold uppercase tracking-wider text-cyan-200">
+                Next-Gen Garment Care
+              </span>
+            </div>
+
+            <h1 className="font-['Nunito'] text-5xl sm:text-6xl lg:text-[4.2rem] font-black leading-[1.05] text-white tracking-tight">
+              Your laundry, <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-[#9dbbec] to-white">
+                done on demand.
+              </span>
+            </h1>
+
+            <p className="font-['Open_Sans'] mt-6 text-lg text-slate-300/90 max-w-lg leading-relaxed font-light">
+              Skip the dry cleaners and the laundromat. Schedule a door-to-door pickup in seconds, customize your wash profile, and track your clothes in real-time.
+            </p>
+
+            {/* Quick Micro-feature list */}
+            <div className="mt-8 grid grid-cols-2 gap-4 max-w-md w-full">
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-md bg-cyan-500/15 flex items-center justify-center text-cyan-400 border border-cyan-500/20">
+                  <Check size={12} strokeWidth={3} />
+                </div>
+                <span className="text-xs font-bold text-slate-300 font-['Nunito']">24-Hour Return</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="w-5 h-5 rounded-md bg-cyan-500/15 flex items-center justify-center text-cyan-400 border border-cyan-500/20">
+                  <Check size={12} strokeWidth={3} />
+                </div>
+                <span className="text-xs font-bold text-slate-300 font-['Nunito']">Eco-Friendly Soap</span>
+              </div>
+            </div>
+
+            {/* Premium Dual Actions */}
+            <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#154088] to-[#0e2c5f] px-8 py-4.5 font-['Nunito'] font-black text-base text-white shadow-xl shadow-[#154088]/20 border border-[#154088]/30 hover:border-cyan-500/30 transition-all duration-300 hover:-translate-y-1"
+              >
+                Book a Pickup
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform stroke-[2.5]" />
+              </button>
+              
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] px-8 py-4.5 font-['Nunito'] font-bold text-base text-white border border-white/10 hover:border-white/20 transition-all"
+              >
+                Estimate Pricing
+              </button>
+            </div>
+          </div>
+
+          {/* RIGHT: High-End Glassmorphic Bento Dashboard Showcase */}
+          <div className="lg:col-span-6 w-full flex justify-center lg:justify-end mt-12 lg:mt-0">
+            <div className="grid grid-cols-6 gap-4 w-full max-w-[520px]">
+              
+              {/* Card 1: Interactive Service Selector Mockup (Span 6) */}
+              <div className="col-span-6 bg-[#04122d]/40 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-5 shadow-2xl flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Layers size={16} className="text-cyan-400" />
+                    <span className="text-xs font-black text-white/50 tracking-wider uppercase font-['Nunito']">Select Care Package</span>
+                  </div>
+                  <span className="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-md border border-cyan-500/20">Customisable</span>
+                </div>
+                
+                <div className="grid grid-cols-3 gap-2.5">
+                  {[
+                    { id: "wash-fold", label: "Wash & Fold", icon: Droplet, desc: "Everyday apparel" },
+                    { id: "dry-clean", label: "Dry Clean", icon: Sparkles, desc: "Delicates & suits" },
+                    { id: "express", label: "Express 12h", icon: Clock, desc: "Priority priority" },
+                  ].map((service) => {
+                    const Icon = service.icon;
+                    const isSelected = selectedService === service.id;
+                    return (
+                      <button
+                        key={service.id}
+                        onClick={() => setSelectedService(service.id)}
+                        type="button"
+                        className={`flex flex-col items-start text-left p-3.5 rounded-2xl border transition-all duration-300 ${
+                          isSelected
+                            ? "bg-[#154088]/40 border-cyan-500/40 text-white shadow-lg shadow-cyan-500/5"
+                            : "bg-[#000a1c]/50 border-white/5 hover:border-white/10 text-slate-400"
+                        }`}
+                      >
+                        <Icon size={18} className={isSelected ? "text-cyan-400" : "text-slate-400"} />
+                        <span className="text-xs font-black font-['Nunito'] mt-2.5 text-white">{service.label}</span>
+                        <span className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{service.desc}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Card 2: Simulated Live Progress Tracker (Span 4) */}
+              <div className="col-span-6 sm:col-span-4 bg-[#04122d]/40 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-5 shadow-2xl flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-xs font-black text-white/50 tracking-wider uppercase font-['Nunito']">Live Order Tracker</span>
+                </div>
+                
+                <div className="flex flex-col gap-2 mt-1">
+                  <div className="flex justify-between items-center text-xs font-bold">
+                    <span className="text-white">Active Clean Cycle</span>
+                    <span className="text-cyan-400">75% Done</span>
+                  </div>
+                  {/* Styled Progress Bar */}
+                  <div className="h-2 w-full bg-[#000a1c]/60 rounded-full overflow-hidden border border-white/5">
+                    <div className="h-full bg-gradient-to-r from-[#154088] to-cyan-400 rounded-full w-[75%]" />
+                  </div>
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-['Nunito'] font-bold">
+                    <span>Pickup</span>
+                    <span className="text-[#154088]">Wash</span>
+                    <span className="text-cyan-400">Iron</span>
+                    <span>Delivery</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Free Pickup Schedule Badge (Span 2) */}
+              <div className="col-span-6 sm:col-span-2 bg-gradient-to-br from-[#154088]/30 to-[#0e2c5f]/10 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-5 shadow-2xl flex flex-col items-center justify-center text-center gap-2 group hover:border-cyan-500/20 transition-all">
+                <div className="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <Calendar size={18} />
+                </div>
+                <span className="text-[10px] font-black tracking-widest text-white/40 uppercase font-['Nunito']">Pickup Slot</span>
+                <span className="text-xs font-black text-white font-['Nunito']">Today Available</span>
+              </div>
+
+              {/* Card 4: Micro Stats Bar (Span 6) */}
+              <div className="col-span-6 bg-[#04122d]/30 border border-white/[0.04] backdrop-blur-md rounded-2xl px-5 py-3.5 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Truck size={15} className="text-slate-400" />
+                  <span className="text-[11px] font-bold text-slate-300">Free Doorstep Dropoff</span>
+                </div>
+                <div className="h-3 w-px bg-white/10" />
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck size={15} className="text-slate-400" />
+                  <span className="text-[11px] font-bold text-slate-300">Garment Care Guarantee</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <BookPickupModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+      />
+    </section>
+  );
+}
