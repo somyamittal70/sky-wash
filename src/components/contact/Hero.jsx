@@ -134,7 +134,7 @@ export default function ContactHero() {
           </div>
 
           {/* RIGHT: High-Fidelity Bento Contact Cards Stack */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 40, scale: 0.97 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -200,7 +200,7 @@ export default function ContactHero() {
                 );
               })}
             </motion.div>
-          </motion.div>
+          </motion.div> */}
 
         </div>
       </div>
