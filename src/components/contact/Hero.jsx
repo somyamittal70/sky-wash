@@ -45,9 +45,14 @@ export default function ContactHero() {
           className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
           initial={{ scale: 1.12, opacity: 0 }}
           animate={{ scale: 1.05, opacity: 0.4 }}
-           transition={{
+          transition={{
             opacity: { duration: 1.4, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 20, ease: 'easeInOut', repeat: Infinity },
+            scale: {
+              duration: 20,
+              ease: 'easeInOut',
+              repeat: Infinity,
+              repeatType: 'mirror',
+            },
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#001230] via-[#001230]/10 to-[#001230]/20" />
@@ -96,8 +101,8 @@ export default function ContactHero() {
               variants={fadeUp}
               className="inline-flex items-center gap-2 rounded-full bg-[#154088]/10 border border-[#154088]/30 px-4 py-1.5 shadow-inner"
             >
-              <HelpCircle size={12} className="text-[#ffff] stroke-[2.5]" />
-              <span className="font-['Nunito'] text-xs font-black uppercase tracking-widest text-[#ffff]">
+              <HelpCircle size={12} className="text-white stroke-[2.5]" />
+              <span className="font-['Nunito'] text-xs font-black uppercase tracking-widest text-white">
                 Support Hub Operational
               </span>
             </motion.div>
@@ -129,7 +134,7 @@ export default function ContactHero() {
           </div>
 
           {/* RIGHT: High-Fidelity Bento Contact Cards Stack */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, x: 40, scale: 0.97 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -195,7 +200,7 @@ export default function ContactHero() {
                 );
               })}
             </motion.div>
-          </motion.div> */}
+          </motion.div>
 
         </div>
       </div>
