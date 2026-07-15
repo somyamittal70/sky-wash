@@ -35,7 +35,7 @@ const cardVariant = {
 
 export default function ContactHero() {
   return (
-    <section className="relative min-h-[75vh] flex items-center overflow-hidden bg-[#001230] text-white py-18 sm:py-22 border-b border-[#154088]/20" id="contact-hero">
+    <section className="relative min-h-[75vh] flex items-center overflow-hidden bg-[#001230] text-white py-18 sm:py-28 border-b border-[#154088]/20" id="contact-hero">
 
       {/* Immersive Image Canvas and Ambient Layer Scrims */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -45,7 +45,10 @@ export default function ContactHero() {
           className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
           initial={{ scale: 1.12, opacity: 0 }}
           animate={{ scale: 1.05, opacity: 0.4 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+           transition={{
+            opacity: { duration: 1.4, ease: [0.22, 1, 0.36, 1] },
+            scale: { duration: 20, ease: 'easeInOut', repeat: Infinity },
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#001230] via-[#001230]/10 to-[#001230]/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#001230] via-transparent to-[#001230]/20" />
@@ -93,8 +96,8 @@ export default function ContactHero() {
               variants={fadeUp}
               className="inline-flex items-center gap-2 rounded-full bg-[#154088]/10 border border-[#154088]/30 px-4 py-1.5 shadow-inner"
             >
-              <HelpCircle size={12} className="text-[#154088] stroke-[2.5]" />
-              <span className="font-['Nunito'] text-xs font-black uppercase tracking-widest text-[#154088]">
+              <HelpCircle size={12} className="text-[#ffff] stroke-[2.5]" />
+              <span className="font-['Nunito'] text-xs font-black uppercase tracking-widest text-[#ffff]">
                 Support Hub Operational
               </span>
             </motion.div>
