@@ -167,18 +167,6 @@ export default function Footer() {
                   </a>
                 </div>
               </li>
-
-              <li className="flex items-start gap-3.5 group">
-                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#154088]/10 border border-[#154088]/20 text-[#154088] group-hover:bg-[#154088] group-hover:text-white transition-all duration-300">
-                  <Mail size={15} className="shrink-0" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs text-[#676a73] uppercase tracking-wider font-bold">Email Us</span>
-                  <a href="mailto:hello@laundry.com" className="text-white/90 hover:text-[#154088] transition-colors">
-                    hello@laundry.com
-                  </a>
-                </div>
-              </li>
             </ul>
 
             {/* Premium Dynamic Original Color Brands Hover Implementation */}

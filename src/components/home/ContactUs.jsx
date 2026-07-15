@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 
 const contactDetails = [
   { icon: Phone, label: 'Call us', value: ' +91-9654349983', href: 'tel:+ +91-9654349983', glow: 'group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-100' },
-  { icon: Mail, label: 'Email us', value: 'hello@laundary.com', href: 'mailto:hello@laundary.com', glow: 'group-hover:text-[#154088] group-hover:bg-[#154088]/5 group-hover:border-[#154088]/10' },
   { icon: MapPin, label: 'Visit us', value: 'S-Block, DLF Phase 3, Sector 24 Gurugram, Haryana 122002', href: '#', glow: 'group-hover:text-emerald-600 group-hover:bg-emerald-50 group-hover:border-emerald-100' },
 ];
 
@@ -229,7 +228,7 @@ export default function ContactUs() {
                             type="tel"
                             value={form.phone}
                             onChange={handleChange('phone')}
-                            placeholder=" +91-9654349983"
+                            placeholder=" +91-99XXXXXXXX"
                             className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#0a1f47] font-medium placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#154088]/10 focus:border-[#154088] transition-all duration-300"
                           />
                         </div>
