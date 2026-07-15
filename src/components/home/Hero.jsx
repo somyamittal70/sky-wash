@@ -241,15 +241,15 @@ export default function Hero() {
                     <motion.div
                       className="h-full bg-gradient-to-r from-[#154088] to-cyan-400 rounded-full"
                       initial={{ width: "0%" }}
-                      animate={{ width: "75%" }}
+                      animate={{ width: "100%" }}
                       transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
                     />
                   </div>
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-['Nunito'] font-bold">
                     <span>Pickup</span>
-                    <span className="text-[#154088]">Wash</span>
-                    <span className="text-cyan-400">Iron</span>
-                    <span>Delivery</span>
+                    <span>Wash</span>
+                    <span>Iron</span>
+                    <span className="text-cyan-400">Delivery</span>
                   </div>
                 </div>
               </motion.div>
