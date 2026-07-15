@@ -1,199 +1,273 @@
 import React, { useState } from 'react';
-import { 
-  CalendarCheck, 
-  Truck, 
-  WashingMachine, 
-  PackageCheck, 
-  ShieldCheck, 
-  Sparkles, 
-  Clock3, 
-  Settings,
-  ShieldAlert
+import { motion, useReducedMotion } from 'framer-motion';
+import {
+  Calendar,
+  Sparkles,
+  Shirt,
+  HeartHandshake,
+  Clock,
 } from 'lucide-react';
 
-const steps = [
+const workflowSteps = [
   {
     id: 1,
-    icon: CalendarCheck,
-    step: 'PH-01',
-    title: 'Precision Booking',
-    desc: 'Lock in a dynamic 2-hour collection slot instantly on our booking matrix.',
-    accentColor: '#2563eb', // Clean Blue
-    status: 'OPTIMIZED',
-    metric: 'Transit: Guaranteed',
-    details: 'Our localized routing grid reserves transit assets instantly, matching your precise schedule without overlapping windows.'
+    icon: Calendar,
+    // stepNumber: '01',
+    label: 'Schedule',
+    title: 'Precision Pickup Booking',
+    desc: 'Select a guaranteed 2-hour collection window that fits your day, through our effortless interface.',
+    extendedInfo: 'Our routing engine reserves transport windows in real time, so your collection never overlaps or slips.',
+    badgeText: 'Instant Confirmation',
   },
   {
     id: 2,
-    icon: Truck,
-    step: 'PH-02',
-    title: 'Secure Collection',
-    desc: 'A dedicated, background-checked valet coordinates collection directly from your hands.',
-    accentColor: '#4f46e5', // Indigo
-    status: 'EN_ROUTE',
-    metric: 'Transit: Fully Insured',
-    details: 'Garments are safely stowed in dust-sealed lockboxes. Valet routing models are optimized live to maintain localized carbon offsets.'
+    icon: Sparkles,
+    // stepNumber: '02',
+    label: 'Collection',
+    title: 'White-Glove Handover',
+    desc: 'A background-checked, dedicated concierge collects your items directly from your home or office.',
+    extendedInfo: 'Clothes travel in dust-sealed, climate-controlled lockboxes — insured door to door.',
+    badgeText: 'Fully Insured Transit',
   },
   {
     id: 3,
-    icon: WashingMachine,
-    step: 'PH-03',
-    title: 'Fabric Sanitize',
-    desc: 'Deep fiber cleaning utilizing tailored, temperature-balanced eco-treatments.',
-    accentColor: '#10b981', // Emerald
-    status: 'PROCESSING',
-    metric: 'Detergents: Organic Base',
-    details: 'Garments are individually assessed, cataloged, and cleaned using zero-petroleum solvents that protect delicate fibers and original structural drape.'
+    icon: Shirt,
+    // stepNumber: '03',
+    label: 'Processing',
+    title: 'Eco-Certified Garment Care',
+    desc: 'Your wardrobe undergoes tailored, fabric-specific treatments using biodegradable solvents.',
+    extendedInfo: 'Every item is inspected, cataloged by fiber type, and washed to preserve its original drape.',
+    badgeText: 'Zero Harsh Chemicals',
   },
   {
     id: 4,
-    icon: PackageCheck,
-    step: 'PH-04',
-    title: 'Fresh Turnover',
-    desc: 'Bespoke finishing, crisp pressing, and protective presentation delivery.',
-    accentColor: '#d97706', // Amber
-    status: 'READY',
-    metric: 'Packaging: Breathable, Zero-Waste',
-    details: 'Following final quality verification, finished pieces are packaged in breathable linen bags and returned straight to your dressing room.'
+    icon: HeartHandshake,
+    // stepNumber: '04',
+    label: 'Return',
+    title: 'Fresh Wardrobe Delivery',
+    desc: 'Items are returned crisp, pristine, and perfectly hand-pressed on protective boutique hangers.',
+    extendedInfo: 'Packaged in breathable linen bags and returned to your closet within 24 hours.',
+    badgeText: '24-Hour Turnaround',
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.15 + i * 0.14, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+function StepContent({ step, isHovered }) {
+  return (
+    <motion.div
+      animate={{ y: isHovered ? -6 : 0 }}
+      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      className={`rounded-[1.5rem] bg-white border p-6 transition-colors duration-300 ${
+        isHovered
+          ? 'border-[#154088]/25 shadow-[0_22px_40px_-16px_rgba(21,64,136,0.2)]'
+          : 'border-slate-200/70 shadow-[0_16px_32px_-18px_rgba(21,64,136,0.12)]'
+      }`}
+    >
+      <span
+        className={`font-['Nunito'] inline-block text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border transition-colors duration-300 ${
+          isHovered
+            ? 'bg-[#154088] border-[#154088] text-white'
+            : 'bg-[#154088]/5 border-[#154088]/10 text-[#154088]'
+        }`}
+      >
+        {step.label}
+      </span>
+      <h3 className="font-['Nunito'] text-lg font-black text-[#0a1f47] tracking-tight mt-3 leading-snug">
+        {step.title}
+      </h3>
+      <p className="font-['Open_Sans'] text-sm text-[#475569] font-medium leading-relaxed mt-2">
+        {step.desc}
+      </p>
+      <p className="font-['Open_Sans'] text-xs text-[#64748b] font-medium leading-relaxed mt-3 pt-3 border-t border-slate-100">
+        {step.extendedInfo}
+      </p>
+      <motion.div
+        animate={{ x: isHovered ? 2 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center gap-1.5 mt-4 text-[11px] font-['Nunito'] font-bold text-[#154088]"
+      >
+        <Clock size={12} className="stroke-[2.5]" />
+        {step.badgeText}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function IconNode({ Icon, isHovered }) {
+  return (
+    <div className="relative flex items-center justify-center">
+      {/* Glow ring on hover */}
+      <motion.div
+        animate={{ opacity: isHovered ? 0.3 : 0, scale: isHovered ? 1.25 : 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="absolute inset-0 rounded-2xl bg-[#154088] blur-md"
+      />
+      <motion.div
+        animate={{ scale: isHovered ? 1.14 : 1, rotate: isHovered ? 8 : 0 }}
+        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+        className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#154088] to-[#0a1f47] border-4 border-[#f8faff] shadow-lg shadow-[#154088]/20 flex items-center justify-center text-white z-10"
+      >
+        <Icon size={22} className="stroke-[2.2]" />
+      </motion.div>
+    </div>
+  );
+}
+
 export default function HowItWorks() {
-  const [activeStep, setActiveStep] = useState(1);
-  const currentData = steps.find(s => s.id === activeStep) || steps[0];
+  const [hovered, setHovered] = useState(null);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="bg-[#f8fafc] py-24 sm:py-32 relative overflow-hidden" id="operational-matrix">
-      
-      {/* Structural Minimalist Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
+    <section
+      className="bg-[#f8faff] py-18 sm:py-22 relative overflow-hidden border-b border-slate-200/60"
+      id="service-workflow"
+    >
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="absolute top-1/3 right-[-10%] w-[500px] h-[500px] bg-[#154088]/5 rounded-full blur-[120px]"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.15, ease: 'easeOut' }}
+          className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-[#5b86c9]/5 rounded-full blur-[120px]"
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        
-        {/* Header Block: Sharp, modern, left-aligned typography */}
-        <div className="max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f5f9] border border-[#e2e8f0] text-xs font-mono text-[#475569] shadow-sm mb-6">
-            <Settings size={12} className="animate-spin text-indigo-600" />
-            OPERATIONAL MATRIX // 04 CYCLES
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0f172a] tracking-tight leading-none">
-            Architected for complete <br />
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-indigo-500 bg-clip-text text-[#154088]">
-              wardrobe preservation.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mb-16 sm:mb-24"
+        >
+          <span className="font-['Nunito'] inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#154088] bg-[#154088]/5 border border-[#154088]/10 rounded-full px-4 py-1.5 shadow-sm">
+            The Process
+          </span>
+          <h2 className="font-['Nunito'] mt-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-[#0a1f47]">
+            Boutique care, <br />
+            <span className="bg-gradient-to-r from-[#4770b3] via-[#154088] to-[#001230] bg-clip-text text-transparent">
+              orchestrated seamlessly.
             </span>
           </h2>
-          <p className="mt-4 text-[#475569] text-base sm:text-lg leading-relaxed max-w-2xl font-medium">
-            We traded manual chore cycles for high-performance software orchestration. Your wardrobe moves safely through a closed-loop system and returns freshly revitalized in 24 hours.
+          <p className="font-['Open_Sans'] mt-4 text-base sm:text-lg text-[#475569] max-w-xl font-medium">
+            No chore lists, no cheap chemicals — just a closed-loop treatment framework that brings your clothes back to life in 24 hours.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Dynamic Interactive Split Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
-          
-          {/* LEFT: MINIMALIST STEP SELECTOR LIST */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-3">
-            {steps.map(({ id, icon: Icon, step, title, desc, accentColor }) => {
-              const isActive = activeStep === id;
+        {/* DESKTOP: Horizontal process rail with alternating content */}
+        <div className="hidden lg:block relative">
+          {/* Connecting line with shimmer */}
+          <div className="absolute left-0 right-0 top-[50%] h-[2px] -translate-y-1/2 bg-gradient-to-r from-[#5b86c9]/20 via-[#154088]/40 to-[#0a1f47]/20 overflow-hidden">
+            {!shouldReduceMotion && (
+              <motion.div
+                className="h-full w-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                style={{ backgroundSize: '200% 100%' }}
+                animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: 'linear' }}
+              />
+            )}
+          </div>
+
+          <div className="grid grid-cols-4 gap-6">
+            {workflowSteps.map((step, idx) => {
+              const isTop = step.id % 2 !== 0;
+              const Icon = step.icon;
+              const isHovered = hovered === step.id;
               return (
-                <div
-                  key={step}
-                  onMouseEnter={() => setActiveStep(id)}
-                  onClick={() => setActiveStep(id)}
-                  className={`group relative p-6 rounded-2xl transition-all duration-300 cursor-pointer border flex gap-6 items-center ${
-                    isActive
-                      ? 'bg-white border-[#cbd5e1] shadow-[0_15px_40px_-20px_rgba(0,0,0,0.05)] translate-x-2'
-                      : 'bg-transparent border-transparent hover:bg-slate-100/50 hover:border-slate-200/60'
-                  }`}
+                <motion.div
+                  key={step.id}
+                  onMouseEnter={() => setHovered(step.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.4 }}
+                  custom={idx}
+                  variants={fadeUp}
+                  className="relative flex flex-col items-center"
                 >
-                  {/* Left Visual Status Node */}
-                  <div className="relative flex-shrink-0">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300 ${
-                      isActive ? 'bg-slate-900 border-slate-900 text-white' : 'bg-white border-[#e2e8f0] text-slate-400'
-                    }`}>
-                      <Icon size={18} strokeWidth={2.2} />
-                    </div>
-                  </div>
+                  {isTop ? (
+                    <>
+                      <div className="pb-8 w-full">
+                        <StepContent step={step} isHovered={isHovered} />
+                      </div>
+                      <div className={`w-px h-8 transition-colors duration-300 ${isHovered ? 'bg-[#154088]/40' : 'bg-[#154088]/15'}`} />
+                      <IconNode Icon={Icon} isHovered={isHovered} />
+                      <div className="h-8" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="h-8" />
+                      <IconNode Icon={Icon} isHovered={isHovered} />
+                      <div className={`w-px h-8 transition-colors duration-300 ${isHovered ? 'bg-[#154088]/40' : 'bg-[#154088]/15'}`} />
+                      <div className="pt-8 w-full">
+                        <StepContent step={step} isHovered={isHovered} />
+                      </div>
+                    </>
+                  )}
 
-                  {/* Text Description Block */}
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-[10px] tracking-wider text-[#94a3b8] font-bold">{step}</span>
-                      {isActive && (
-                        <span className="h-2 w-2 rounded-full animate-pulse" style={{ backgroundColor: accentColor }} />
-                      )}
-                    </div>
-                    <h3 className="font-bold text-[#0f172a] text-lg mt-0.5">{title}</h3>
-                    <p className="text-[#64748b] text-xs sm:text-sm mt-1 leading-relaxed font-medium">
-                      {desc}
-                    </p>
-                  </div>
-                </div>
+                  {/* <span
+                    className={`font-['Nunito'] absolute top-1/2 -translate-y-1/2 text-[10px] font-black tracking-wider transition-colors duration-300 ${
+                      isHovered ? 'text-[#154088]/60' : 'text-slate-300'
+                    }`}
+                  >
+                    {step.stepNumber}
+                  </span> */}
+                </motion.div>
               );
             })}
           </div>
+        </div>
 
-          {/* RIGHT: ARCHITECTURAL "BLUEPRINT" PANEL */}
-          <div className="lg:col-span-5 flex">
-            <div className="w-full bg-white border border-[#cbd5e1] rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative shadow-[0_30px_60px_-25px_rgba(0,0,0,0.04)] overflow-hidden">
-              
-              {/* Dynamic light subtle color indicator block */}
-              <div 
-                className="absolute top-0 inset-x-0 h-1.5 transition-all duration-500" 
-                style={{ backgroundColor: currentData.accentColor }}
-              />
+        {/* MOBILE / TABLET: Vertical left-rail timeline */}
+        <div className="lg:hidden relative pl-8 sm:pl-10">
+          <div className="absolute left-[27px] sm:left-[31px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-[#5b86c9]/30 via-[#154088]/40 to-[#0a1f47]/20" />
 
-              {/* Tag Header */}
-              <div className="flex items-center justify-between pb-6 border-b border-[#e2e8f0]">
-                <div className="flex items-center gap-2.5">
-                  <span className="bg-[#f1f5f9] border border-[#e2e8f0] text-[#475569] font-mono text-[10px] font-bold px-2 py-0.5 rounded-md">
-                    {currentData.step}
-                  </span>
-                  <span className="font-mono text-xs text-[#94a3b8] font-bold">STATUS: {currentData.status}</span>
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-[#475569] font-mono font-bold">
-                  <Clock3 size={12} className="text-indigo-600" /> 24H TARGET
-                </div>
-              </div>
-
-              {/* Blueprint Description */}
-              <div className="py-8">
-                <h4 className="text-3xl font-extrabold text-[#0f172a] tracking-tight">
-                  {currentData.title}
-                </h4>
-                <p className="text-[#475569] text-sm sm:text-base leading-relaxed mt-4 font-medium">
-                  {currentData.details}
-                </p>
-              </div>
-
-              {/* Structural Grid Footer */}
-              <div className="space-y-4 pt-6 border-t border-[#e2e8f0]">
-                <div className="flex justify-between items-center text-xs font-mono">
-                  <span className="text-[#94a3b8] font-bold">LIVE TELEMETRY</span>
-                  <span className="text-[#475569] font-bold">{currentData.metric}</span>
-                </div>
-                <div className="flex justify-between items-center text-xs font-mono">
-                  <span className="text-[#94a3b8] font-bold">ACCELERATION STATE</span>
-                  <span className="text-[#0f172a] font-extrabold">ECO_OPTIMAL_CYCLE_v4</span>
-                </div>
-                
-                {/* Assurance Block */}
-                <div className="bg-[#f8fafc] border border-[#e2e8f0] rounded-2xl p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
-                      <ShieldCheck size={16} />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#0f172a]">Fully Bonded Processing</p>
-                      <p className="text-[10px] text-[#64748b] font-medium">Protected and insured care framework</p>
-                    </div>
+          <div className="flex flex-col gap-10">
+            {workflowSteps.map((step, idx) => {
+              const Icon = step.icon;
+              const isHovered = hovered === step.id;
+              return (
+                <motion.div
+                  key={step.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.4 }}
+                  custom={idx}
+                  variants={fadeUp}
+                  className="relative"
+                >
+                  <div className="absolute -left-8 sm:-left-10 top-0">
+                    <IconNode Icon={Icon} isHovered={isHovered} />
                   </div>
-                  <Sparkles size={14} className="text-amber-500 fill-amber-500 opacity-60" />
-                </div>
-              </div>
-
-            </div>
+                  <div
+                    className="pl-8 sm:pl-10"
+                    onTouchStart={() => setHovered(step.id)}
+                    onMouseEnter={() => setHovered(step.id)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    <StepContent step={step} isHovered={isHovered} />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-
         </div>
 
       </div>

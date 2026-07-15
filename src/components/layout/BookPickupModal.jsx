@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X,
   User,
@@ -49,6 +50,18 @@ export default function BookPickupModal({ isOpen, onClose }) {
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
 
+  // Lock background scroll while the modal is open, and restore it on close/unmount.
+  // This also masks any stray-transform containing-block bug elsewhere in the tree,
+  // since the page itself can no longer scroll behind the modal.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
@@ -83,7 +96,7 @@ export default function BookPickupModal({ isOpen, onClose }) {
 
   const activeServiceObj = services.find(s => s.id === form.service);
 
-  return (
+  const modalContent = (
     <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* Backdrop */}
       <div
@@ -93,7 +106,7 @@ export default function BookPickupModal({ isOpen, onClose }) {
 
       {/* Main Container */}
       <div className="relative w-full sm:max-w-2xl max-h-[92vh] sm:max-h-[90vh] bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl shadow-slate-950/40 overflow-hidden flex flex-col transition-all duration-300 animate-in slide-in-from-bottom sm:zoom-in-95">
-        
+
         {/* Header Area */}
         <div className="px-6 sm:px-8 pt-6 pb-4 border-b border-slate-100 flex items-center justify-between gap-4 shrink-0">
           <div>
@@ -118,8 +131,8 @@ export default function BookPickupModal({ isOpen, onClose }) {
         {/* Dynamic Progress Timeline Line */}
         {!submitted && (
           <div className="w-full bg-slate-100 h-1 shrink-0">
-            <div 
-              className="bg-blue-600 h-1 transition-all duration-300 ease-out" 
+            <div
+              className="bg-blue-600 h-1 transition-all duration-300 ease-out"
               style={{ width: `${(step / 3) * 100}%` }}
             />
           </div>
@@ -139,13 +152,6 @@ export default function BookPickupModal({ isOpen, onClose }) {
               <p className="font-['Open_Sans'] mt-3 text-sm sm:text-base text-slate-500 max-w-sm leading-relaxed">
                 Your scheduling window for <span className="font-semibold text-slate-800">{form.date}</span> ({form.timeSlot}) has been verified. Our courier will ping you when nearby.
               </p>
-              <button
-                type="button"
-                onClick={handleClose}
-                className="mt-8 px-8 py-3 rounded-full bg-slate-900 font-['Nunito'] font-bold text-sm text-white shadow-lg hover:bg-slate-800 transition-all duration-200"
-              >
-                Return to Dashboard
-              </button>
             </div>
           ) : (
             <div>
@@ -389,4 +395,9 @@ export default function BookPickupModal({ isOpen, onClose }) {
       </div>
     </div>
   );
+
+  // Rendering via a portal into document.body means this modal is no longer
+  // nested inside whatever ancestor element was breaking `fixed` positioning
+  // (most likely one with a transform/filter/will-change style on it).
+  return createPortal(modalContent, document.body);
 }

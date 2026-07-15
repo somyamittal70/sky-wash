@@ -2,47 +2,38 @@ import React from "react";
 import { Mail, Phone, MapPin, ArrowUpRight, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// --- Clean, modernized Inline SVG social icons -----------------------------
+// ── Standardized Clean Brand SVGs (Fixed stroke and fill bindings) ──
 const Facebook = (props) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M13.5 21v-8.2h2.75l.41-3.2h-3.16V7.5c0-.93.26-1.56 1.6-1.56h1.7V3.1C16.5 3.05 15.53 3 14.4 3c-2.36 0-3.98 1.44-3.98 4.08v2.52H7.66v3.2h2.76V21h3.08z" />
+  <svg viewBox="0 0 24 24" fill="currentColor" className={props.className}>
+    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.95z" />
   </svg>
 );
 
 const Instagram = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={props.className}>
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" />
   </svg>
 );
 
 const XTwitter = (props) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+  <svg viewBox="0 0 24 24" fill="currentColor" className={props.className}>
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
 const WhatsApp = (props) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M12.003 21c-1.623 0-3.14-.424-4.46-1.166L3 21l1.192-4.382A8.956 8.956 0 0 1 3.003 12c0-4.963 4.04-9 9-9 4.964 0 9 4.037 9 9 0 4.963-4.036 9-9 9zm4.721-6.17c-.26-.13-1.536-.757-1.773-.843-.238-.086-.411-.13-.583.13-.172.26-.667.843-.818 1.016-.151.173-.303.195-.563.066a7.1 7.1 0 0 1-2.091-1.288 7.83 7.83 0 0 1-1.446-1.801c-.152-.26-.016-.4.113-.529.117-.117.26-.303.39-.455.13-.152.173-.26.26-.433.086-.173.043-.325-.022-.455-.065-.13-.583-1.405-.799-1.925-.21-.51-.424-.442-.583-.45-.15-.008-.324-.01-.497-.01a.96.96 0 0 0-.693.325c-.238.26-.91.888-.91 2.165s.93 2.513 1.06 2.686c.13.173 1.83 2.8 4.434 3.928 2.168.94 2.608.753 3.082.71.474-.043 1.536-.628 1.752-1.234.217-.606.217-1.126.152-1.234-.065-.108-.238-.173-.498-.303z" />
+  <svg viewBox="0 0 24 24" fill="currentColor" className={props.className}>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
 
 const socials = [
-  { label: "Facebook", Icon: Facebook, href: "#", brand: "#1877F2" },
-  { label: "Instagram", Icon: Instagram, href: "#", brand: "#E1306C" },
-  { label: "X (Twitter)", Icon: XTwitter, href: "#", brand: "#000000" },
-  { label: "WhatsApp", Icon: WhatsApp, href: "#", brand: "#25D366" },
+  { label: "Facebook", Icon: Facebook, href: "#", brandClass: "hover:bg-[#1877F2] hover:border-[#1877F2] hover:shadow-[#1877F2]/20" },
+  { label: "Instagram", Icon: Instagram, href: "#", brandClass: "hover:bg-[#E1306C] hover:border-[#E1306C] hover:shadow-[#E1306C]/20" },
+  { label: "X (Twitter)", Icon: XTwitter, href: "#", brandClass: "hover:bg-[#000000] hover:border-[#000000] hover:shadow-black/40" },
+  { label: "WhatsApp", Icon: WhatsApp, href: "#", brandClass: "hover:bg-[#25D366] hover:border-[#25D366] hover:shadow-[#25D366]/20" },
 ];
 
 const linkColumns = [
@@ -67,10 +58,9 @@ const linkColumns = [
   {
     heading: "Support",
     links: [
-      { label: "About Us" },
-      { label: "Contact" },
-      { label: "FAQ" },
-      { label: "Privacy Policy" },
+      { label: "About Us", path: "/" },
+      { label: "Contact", path: "/contact" },
+      { label: "Privacy Policy", path: "/pricing" },
     ],
   },
 ];
@@ -78,11 +68,15 @@ const linkColumns = [
 export default function Footer() {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    // Add custom handler logic here
   };
 
   return (
     <footer className="font-['Open_Sans'] relative bg-[#001230] text-slate-100 overflow-hidden border-t border-[#154088]/40">
+      
+      {/* Dynamic Font Injection setup to verify Open Sans & Nunito mapping */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Open+Sans:wght@400;500;600;700&display=swap');
+      `}} />
       
       {/* Decorative Ambient Background Glows */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -94,7 +88,6 @@ export default function Footer() {
         
         {/* Top Section: Brand Info + Dynamic Interactive Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1.8fr] gap-12 pb-16 border-b border-[#154088]/20 items-center">
-          
           <div className="space-y-4">
             <a
               href="#"
@@ -103,7 +96,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="SK Laundry logo"
-                className="w-28 h-18 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                className="w-30 h-28 object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               />
             </a>
             <p className="text-sm text-[#9a9ca1] max-w-sm leading-relaxed">
@@ -141,7 +134,6 @@ export default function Footer() {
               </button>
             </form>
           </div>
-
         </div>
 
         {/* Middle Section: Contact Details & Column Links */}
@@ -189,15 +181,14 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Premium Interactive Hover Social Icons */}
+            {/* Premium Dynamic Original Color Brands Hover Implementation */}
             <div className="flex items-center gap-3 pt-2">
-              {socials.map(({ label, Icon, href, brand }) => (
+              {socials.map(({ label, Icon, href, brandClass }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  style={{ "--brand": brand }}
-                  className="group flex items-center justify-center w-10 h-10 rounded-xl bg-[#154088]/10 border border-[#154088]/20 text-[#9a9ca1] transition-all duration-300 hover:-translate-y-1 hover:text-white hover:border-transparent hover:bg-[var(--brand)] hover:shadow-lg hover:shadow-[var(--brand)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand)]"
+                  className={`group flex items-center justify-center w-10 h-10 rounded-xl bg-[#154088]/10 border border-[#154088]/20 text-[#9a9ca1] transition-all duration-300 hover:-translate-y-1 hover:text-white hover:border-transparent hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${brandClass}`}
                 >
                   <Icon className="w-4 h-4 transition-transform group-hover:scale-110" />
                 </a>

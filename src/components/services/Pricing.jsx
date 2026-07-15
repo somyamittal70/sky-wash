@@ -53,7 +53,7 @@ export default function Pricing() {
   const [express, setExpress] = useState(false);
 
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-18 sm:py-22">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <span className="font-['Nunito'] inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wide text-[#3B82F6] bg-[#3B82F6]/10 rounded-full px-4 py-1.5">

@@ -3,6 +3,7 @@ import WhyChooseUs from "../components/home/ChooseUs"
 import ContactUs from "../components/home/ContactUs"
 import Hero from "../components/home/Hero"
 import HowItWorks from "../components/home/HowItWork"
+import Testimonials from "../components/home/Testimonial"
 
 export default function HeroPage() {
     return (
@@ -11,6 +12,7 @@ export default function HeroPage() {
             <About />
             <HowItWorks />
             <WhyChooseUs />
+            <Testimonials />
             <ContactUs />
         </>
     )
