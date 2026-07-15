@@ -347,7 +347,7 @@ export default function ContactFormMap() {
               >
                 <iframe
                   title="Laundary operation central mapping radar"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.999999999999!2d-89.6501!3d39.7817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ2JzU0LjEiTiA4OcKwMzknMDAuNCJX!5e0!3m2!1sen!2sus!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.760121667458!2d77.10200209999999!3d28.486769899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19c49597464f%3A0xd21982d9e7f4c4d4!2sSky%20Wash%20Laundry!5e0!3m2!1sen!2sin!4v1784117014883!5m2!1sen!2sin"
                   className="absolute inset-0 w-full h-full border-0 contrast-[105%] opacity-95"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
