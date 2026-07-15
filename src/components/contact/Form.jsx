@@ -16,8 +16,8 @@ const contactCards = [
     id: "phone",
     icon: Phone,
     label: "Voice Support",
-    value: "+91-98547861540",
-    href: "tel:+9198547861540",
+    value: "+91-9654349983",
+    href: "tel:+91-9654349983",
     status: "Available",
   },
   {
@@ -32,7 +32,7 @@ const contactCards = [
     id: "address",
     icon: MapPin,
     label: "Flagship Hub",
-    value: "221 Riverside, Springfield",
+    value: "S-Block, DLF Phase 3, Sector 24 Gurugram, Haryana 122002",
     href: "#",
     status: "Open Now",
   },
@@ -40,7 +40,7 @@ const contactCards = [
     id: "hours",
     icon: Clock,
     label: "Operational Sync",
-    value: "Mon–Sun, 7am–9pm",
+    value: "Mon–Sun, 9am–9pm",
     href: null,
     status: "Active",
   },
@@ -222,7 +222,7 @@ export default function ContactFormMap() {
                         required
                         value={form.name}
                         onChange={handleChange("name")}
-                        placeholder="Jane Doe"
+                        placeholder="Rahul Kumar"
                         className="w-full rounded-2xl border border-[#9a9ca1]/40 bg-white px-4 py-4 text-sm text-[#001230] placeholder:text-[#9a9ca1] focus:border-[#154088] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#154088]/10 transition-all duration-300 font-medium shadow-sm"
                       />
                       <label
@@ -238,7 +238,7 @@ export default function ContactFormMap() {
                         type="tel"
                         value={form.phone}
                         onChange={handleChange("phone")}
-                        placeholder="+91-9854786154"
+                        placeholder="+91-9654349983"
                         className="w-full rounded-2xl border border-[#9a9ca1]/40 bg-white px-4 py-4 text-sm text-[#001230] placeholder:text-[#9a9ca1] focus:border-[#154088] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#154088]/10 transition-all duration-300 font-medium shadow-sm"
                       />
                       <label
@@ -257,7 +257,7 @@ export default function ContactFormMap() {
                       required
                       value={form.email}
                       onChange={handleChange("email")}
-                      placeholder="jane@email.com"
+                      placeholder="rahul@email.com"
                       className="w-full rounded-2xl border border-[#9a9ca1]/40 bg-white px-4 py-4 text-sm text-[#001230] placeholder:text-[#9a9ca1] focus:border-[#154088] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#154088]/10 transition-all duration-300 font-medium shadow-sm"
                     />
                     <label

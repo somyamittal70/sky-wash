@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Expand, Sparkles } from 'lucide-react';
+import { Expand, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const filters = ['All', 'Wash & Fold', 'Dry Cleaning', 'Linens', 'Facility'];
 
@@ -17,7 +17,7 @@ const galleryItems = [
   { id: 10, category: 'Dry Cleaning', img: 'https://i.pinimg.com/1200x/96/3f/1f/963f1fc6e9b32bac9ae7aed374b651dc.jpg', title: 'Professional Cleaning', tall: true },
   { id: 11, category: 'Facility', img: 'https://i.pinimg.com/1200x/62/15/47/6215473d801300865e144308f5f4747d.jpg', title: 'Modern Equipment', tall: true },
   { id: 12, category: 'Linens', img: 'https://i.pinimg.com/1200x/c2/d6/62/c2d6626721a5b9b9cbbdd731aa9cbb1a.jpg', title: 'Luxury Bedding' },
-  { id: 13, category: 'Wash & Fold', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop', title: 'Freshly Folded', tall: true },
+  { id: 13, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/53/61/23/536123c99d23afb003b9669c91cb4115.jpg', title: 'Freshly Folded', tall: true },
   { id: 14, category: 'Dry Cleaning', img: 'https://i.pinimg.com/736x/53/e6/22/53e622c28f350905e338c4a0f60ab531.jpg', title: 'Premium Garments' },
   { id: 15, category: 'Facility', img: 'https://i.pinimg.com/1200x/16/87/ed/1687ed4fffea3946c18cc2dee511eaaa.jpg', title: 'Laundry Team' },
 ];
@@ -48,9 +48,39 @@ const cardVariant = {
 
 export default function GalleryGrid() {
   const [active, setActive] = useState('All');
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const filtered =
     active === 'All' ? galleryItems : galleryItems.filter((item) => item.category === active);
+
+  // Reset selected photo context if filter updates out from underneath an open modal
+  useEffect(() => {
+    setSelectedIndex(null);
+  }, [active]);
+
+  // Keyboard controls listener
+  useEffect(() => {
+    if (selectedIndex === null) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') setSelectedIndex(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, filtered]);
+
+  const handleNext = (e) => {
+    e?.stopPropagation();
+    setSelectedIndex((prev) => (prev === filtered.length - 1 ? 0 : prev + 1));
+  };
+
+  const handlePrev = (e) => {
+    e?.stopPropagation();
+    setSelectedIndex((prev) => (prev === 0 ? filtered.length - 1 : prev - 1));
+  };
 
   return (
     <section className="relative overflow-hidden bg-[#ffffff] text-[#334155] py-18 sm:py-22 border-b border-slate-200/60" id="gallery-grid">
@@ -131,7 +161,7 @@ export default function GalleryGrid() {
         {/* High-Fidelity Masonry Grid Sheet */}
         <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
           <AnimatePresence mode="popLayout">
-            {filtered.map(({ id, img, title, category, tall }) => (
+            {filtered.map(({ id, img, title, category, tall }, index) => (
               <motion.div
                 key={id}
                 layout
@@ -140,6 +170,7 @@ export default function GalleryGrid() {
                 exit="exit"
                 variants={cardVariant}
                 whileHover={{ y: -4 }}
+                onClick={() => setSelectedIndex(index)}
                 className={`group relative mb-6 break-inside-avoid rounded-3xl overflow-hidden border border-slate-200/80 bg-slate-50 shadow-[0_15px_30px_-15px_rgba(21,64,136,0.04)] transition-colors duration-300 hover:border-[#154088]/30 hover:shadow-2xl hover:shadow-[#154088]/10 cursor-pointer ${
                   tall ? 'aspect-[3/4]' : 'aspect-[4/3]'
                 }`}
@@ -176,8 +207,79 @@ export default function GalleryGrid() {
             ))}
           </AnimatePresence>
         </div>
-
       </div>
+
+      {/* Lightbox / Modal Module Overlay */}
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedIndex(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-[#0a1f47]/90 backdrop-blur-lg cursor-zoom-out"
+          >
+            {/* Top Close Control Panel Bar */}
+            <div className="absolute top-6 left-0 right-0 px-6 flex justify-between items-center text-white/70 z-30 select-none pointer-events-none">
+              <div className="font-['Nunito'] text-sm font-medium tracking-wide">
+                {selectedIndex + 1} / {filtered.length}
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedIndex(null)}
+                className="pointer-events-auto w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 text-white border border-white/10 hover:bg-white/20 transition-all"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Left Nav Trigger */}
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="absolute left-4 md:left-8 z-30 w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 text-white border border-white/10 hover:bg-white/20 transition-all cursor-pointer"
+            >
+              <ChevronLeft size={24} className="stroke-[2.5]" />
+            </button>
+
+            {/* Hero Main Presentation Card */}
+            <motion.div
+              key={filtered[selectedIndex].id}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: 'spring', duration: 0.5, bounce: 0.15 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-4xl max-h-[75vh] md:max-h-[80vh] rounded-3xl overflow-hidden border border-white/10 shadow-2xl cursor-default"
+            >
+              <img
+                src={filtered[selectedIndex].img}
+                alt={filtered[selectedIndex].title}
+                className="w-full h-full max-h-[75vh] md:max-h-[80vh] object-contain bg-slate-950/40"
+              />
+              
+              {/* Context Text Footer inside Lightbox */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white pt-16">
+                <span className="font-['Nunito'] inline-block text-[10px] font-black uppercase tracking-widest text-[#9dbbec] bg-white/10 border border-white/10 px-2 py-0.5 rounded-md mb-2 backdrop-blur-sm">
+                  {filtered[selectedIndex].category}
+                </span>
+                <h3 className="font-['Nunito'] text-lg md:text-xl font-bold tracking-tight">
+                  {filtered[selectedIndex].title}
+                </h3>
+              </div>
+            </motion.div>
+
+            {/* Right Nav Trigger */}
+            <button
+              type="button"
+              onClick={handleNext}
+              className="absolute right-4 md:right-8 z-30 w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 text-white border border-white/10 hover:bg-white/20 transition-all cursor-pointer"
+            >
+              <ChevronRight size={24} className="stroke-[2.5]" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

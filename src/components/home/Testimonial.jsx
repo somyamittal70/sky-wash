@@ -57,8 +57,8 @@ const testimonials = [
 
 const stats = [
   { label: 'Average Rating', value: '4.9', suffix: '/5' },
-  { label: 'Orders Processed', value: '128', suffix: 'K+' },
-  { label: 'Retention Rate', value: '92', suffix: '%' },
+  { label: 'Orders Processed', value: '5', suffix: 'K+' },
+  { label: 'Retention Rate', value: '98', suffix: '%' },
 ];
 
 const containerStagger = {

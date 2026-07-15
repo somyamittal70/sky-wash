@@ -30,10 +30,10 @@ const WhatsApp = (props) => (
 );
 
 const socials = [
-  { label: "Facebook", Icon: Facebook, href: "#", brandClass: "hover:bg-[#1877F2] hover:border-[#1877F2] hover:shadow-[#1877F2]/20" },
-  { label: "Instagram", Icon: Instagram, href: "#", brandClass: "hover:bg-[#E1306C] hover:border-[#E1306C] hover:shadow-[#E1306C]/20" },
-  { label: "X (Twitter)", Icon: XTwitter, href: "#", brandClass: "hover:bg-[#000000] hover:border-[#000000] hover:shadow-black/40" },
-  { label: "WhatsApp", Icon: WhatsApp, href: "#", brandClass: "hover:bg-[#25D366] hover:border-[#25D366] hover:shadow-[#25D366]/20" },
+  { label: "Facebook", Icon: Facebook, href: "https://www.facebook.com/p/Sky-Wash-Laundry-100038071315944", brandClass: "hover:bg-[#1877F2] hover:border-[#1877F2] hover:shadow-[#1877F2]/20" },
+  // { label: "Instagram", Icon: Instagram, href: "#", brandClass: "hover:bg-[#E1306C] hover:border-[#E1306C] hover:shadow-[#E1306C]/20" },
+  // { label: "X (Twitter)", Icon: XTwitter, href: "#", brandClass: "hover:bg-[#000000] hover:border-[#000000] hover:shadow-black/40" },
+  { label: "WhatsApp", Icon: WhatsApp, href: "https://wa.me/919654349983", brandClass: "hover:bg-[#25D366] hover:border-[#25D366] hover:shadow-[#25D366]/20" },
 ];
 
 const linkColumns = [
@@ -152,7 +152,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-[#676a73] uppercase tracking-wider font-bold">Address</span>
-                  <span className="text-white/90">221 Riverside Ave, Springfield</span>
+                  <span className="text-white/90">S-Block, DLF Phase 3, Sector 24 Gurugram, Haryana 122002</span>
                 </div>
               </li>
               
@@ -162,8 +162,8 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-[#676a73] uppercase tracking-wider font-bold">Call Us</span>
-                  <a href="tel:+919854786154" className="text-white/90 hover:text-[#154088] transition-colors">
-                    +91-9854786154
+                  <a href="tel: +91-9654349983" className="text-white/90 hover:text-[#154088] transition-colors">
+                     +91-9654349983
                   </a>
                 </div>
               </li>
@@ -224,7 +224,7 @@ export default function Footer() {
 
         {/* Bottom Section: Copyright & Developer Info */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#676a73]">
-          <p className="font-medium">&copy; {new Date().getFullYear()} SK Laundry. All rights reserved.</p>
+          <p className="font-medium">&copy; {new Date().getFullYear()} Sky-Wash Laundry. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
               href="https://deboxtechnology.com"

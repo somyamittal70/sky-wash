@@ -5,7 +5,7 @@ import { ChevronRight, Phone, Mail, Clock, HelpCircle } from "lucide-react";
 const quickContacts = [
   { icon: Phone, label: "+91-98547861540", href: "tel:+9198547861540", activeText: "Call Support" },
   { icon: Mail, label: "hello@laundary.com", href: "mailto:hello@laundary.com", activeText: "Email Support" },
-  { icon: Clock, label: "Mon–Sun, 7am–9pm", href: null, activeText: "Operational Hours" },
+  { icon: Clock, label: "Mon–Sun, 9am–9pm", href: null, activeText: "Operational Hours" },
 ];
 
 const fadeUp = {

@@ -30,7 +30,7 @@ const services = [
   { id: 'shoes', label: 'Shoe Cleaning', icon: Footprints, desc: 'Premium deep refresh' },
 ];
 
-const timeSlots = ['8:00 AM – 11:00 AM', '12:00 PM – 3:00 PM', '4:00 PM – 7:00 PM'];
+const timeSlots = ['9:00 AM – 12:00 AM', '1:00 PM – 4:00 PM', '5:00 PM – 9:00 PM'];
 const clothTypes = ['Shirts', 'Trousers', 'Suits', 'Dresses', 'Bedding', 'Curtains', 'Shoes', 'Other'];
 
 const initialForm = {
@@ -168,7 +168,7 @@ export default function BookPickupModal({ isOpen, onClose }) {
                         type="text"
                         value={form.name}
                         onChange={update('name')}
-                        placeholder="Jane Doe"
+                        placeholder="Rahul Kumar"
                         className="rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
                       />
                     </div>
@@ -181,7 +181,7 @@ export default function BookPickupModal({ isOpen, onClose }) {
                         type="tel"
                         value={form.phone}
                         onChange={update('phone')}
-                        placeholder="(555) 000-0000"
+                        placeholder="+91-99XXXXXXXX"
                         className="rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
                       />
                     </div>
@@ -195,7 +195,7 @@ export default function BookPickupModal({ isOpen, onClose }) {
                       type="email"
                       value={form.email}
                       onChange={update('email')}
-                      placeholder="jane@example.com"
+                      placeholder="rahul@example.com"
                       className="rounded-xl border border-slate-200 bg-slate-50/50 px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all"
                     />
                   </div>

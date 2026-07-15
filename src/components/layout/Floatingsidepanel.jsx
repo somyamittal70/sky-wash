@@ -15,23 +15,17 @@ function WhatsAppIcon({ size = 20, className = "" }) {
   );
 }
 
-// Instagram glyph
-function InstagramIcon({ size = 20, className = "" }) {
+// Facebook glyph
+function FacebookIcon({ size = 20, className = "" }) {
   return (
     <svg
       viewBox="0 0 24 24"
       width={size}
       height={size}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       className={className}
     >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37a4 4 0 1 1-7.914 1.174A4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z" />
     </svg>
   );
 }
@@ -60,25 +54,25 @@ const actions = [
     id: "whatsapp",
     icon: WhatsAppIcon,
     label: "WhatsApp Us",
-    href: "https://wa.me/919854786154",
+    href: "https://wa.me/919654349983",
     bg: "bg-[#25D366]",
     hoverBg: "hover:bg-[#1ebe5d]",
     textColor: "text-white",
   },
   {
-    id: "instagram",
-    icon: InstagramIcon,
-    label: "Follow Us",
-    href: "https://instagram.com/yourhandle",
-    bg: "bg-gradient-to-br from-[#FEDA75] via-[#DD2A7B] to-[#8134AF]",
-    hoverBg: "hover:bg-[#dd2a7b]",
+    id: "facebook",
+    icon: FacebookIcon,
+    label: "Facebook",
+    href: "https://www.facebook.com/p/Sky-Wash-Laundry-100038071315944",
+    bg: "bg-[#1877F2]",
+    hoverBg: "hover:bg-[#166fe5]",
     textColor: "text-white",
   },
   {
     id: "call",
     icon: PhoneIcon,
     label: "Call Us",
-    href: "tel:+919854786154",
+    href: "tel:+91-9654349983",
     bg: "bg-gradient-to-br from-[#34D399] via-[#10B981] to-[#047857]",
     hoverBg: "hover:bg-[#b71c1c]",
     textColor: "text-white",
@@ -110,12 +104,6 @@ export default function FloatingSidePanel() {
           <span className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 shrink-0">
             <Icon size={20} className={`${textColor}`} />
           </span>
-          
-          {/* 
-            Animated Text Label:
-            - Only expands on desktop hover (md:group-hover:max-w-[160px]).
-            - Kept hidden on mobile to avoid layout breaking or obscuring mobile content.
-          */}
           <span className={`max-w-0 md:group-hover:max-w-[160px] md:group-hover:pr-5 overflow-hidden whitespace-nowrap transition-all duration-300 font-['Nunito'] font-black text-sm ${textColor}`}>
             {label}
           </span>

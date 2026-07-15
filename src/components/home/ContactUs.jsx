@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 
 const contactDetails = [
-  { icon: Phone, label: 'Call us', value: '+91-9854786154', href: 'tel:+919854786154', glow: 'group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-100' },
+  { icon: Phone, label: 'Call us', value: ' +91-9654349983', href: 'tel:+ +91-9654349983', glow: 'group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-100' },
   { icon: Mail, label: 'Email us', value: 'hello@laundary.com', href: 'mailto:hello@laundary.com', glow: 'group-hover:text-[#154088] group-hover:bg-[#154088]/5 group-hover:border-[#154088]/10' },
-  { icon: MapPin, label: 'Visit us', value: '221 Riverside Ave, Springfield', href: '#', glow: 'group-hover:text-emerald-600 group-hover:bg-emerald-50 group-hover:border-emerald-100' },
+  { icon: MapPin, label: 'Visit us', value: 'S-Block, DLF Phase 3, Sector 24 Gurugram, Haryana 122002', href: '#', glow: 'group-hover:text-emerald-600 group-hover:bg-emerald-50 group-hover:border-emerald-100' },
 ];
 
 const fadeUp = {
@@ -216,7 +216,7 @@ export default function ContactUs() {
                             type="text"
                             value={form.name}
                             onChange={handleChange('name')}
-                            placeholder="Jane Doe"
+                            placeholder="Rahul Kumar"
                             className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#0a1f47] font-medium placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#154088]/10 focus:border-[#154088] transition-all duration-300"
                           />
                         </div>
@@ -229,7 +229,7 @@ export default function ContactUs() {
                             type="tel"
                             value={form.phone}
                             onChange={handleChange('phone')}
-                            placeholder="(123) 456-7890"
+                            placeholder=" +91-9654349983"
                             className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#0a1f47] font-medium placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#154088]/10 focus:border-[#154088] transition-all duration-300"
                           />
                         </div>
@@ -245,7 +245,7 @@ export default function ContactUs() {
                           type="email"
                           value={form.email}
                           onChange={handleChange('email')}
-                          placeholder="jane@email.com"
+                          placeholder="rahul@email.com"
                           className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-[#0a1f47] font-medium placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#154088]/10 focus:border-[#154088] transition-all duration-300"
                         />
                       </div>

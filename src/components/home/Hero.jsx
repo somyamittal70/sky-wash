@@ -234,7 +234,7 @@ export default function Hero() {
                 <div className="flex flex-col gap-2 mt-1">
                   <div className="flex justify-between items-center text-xs font-bold">
                     <span className="text-white">Active Clean Cycle</span>
-                    <span className="text-cyan-400">75% Done</span>
+                    <span className="text-cyan-400">100% Done</span>
                   </div>
                   {/* Styled Progress Bar */}
                   <div className="h-2 w-full bg-[#000a1c]/60 rounded-full overflow-hidden border border-white/5">

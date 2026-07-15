@@ -84,13 +84,13 @@ export default function Header() {
           {/* Right Side Actions */}
           <div className="hidden lg:flex items-center gap-6 shrink-0">
             <a
-              href="tel:+919854786154"
+              href="tel:+91-9654349983"
               className="group flex items-center gap-2 text-sm font-semibold text-[#676a73] hover:text-[#154088] transition-colors rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#154088]"
             >
               <div className="p-2 rounded-full bg-[#9a9ca1]/15 group-hover:bg-[#154088]/10 transition-colors">
                 <Phone size={16} className="text-[#676a73] group-hover:text-[#154088]" />
               </div>
-              <span className="tracking-wide">+91 98547 86154</span>
+              <span className="tracking-wide">+91-9654349983</span>
             </a>
 
             <button
