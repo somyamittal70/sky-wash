@@ -164,7 +164,7 @@ export default function PricingHero() {
         </div>
 
         {/* RIGHT RUNWAY: Premium Interactive Glassmorphic Rates Matrix */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: 50, scale: 0.96 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -212,7 +212,7 @@ export default function PricingHero() {
               </p>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
       </div>
 

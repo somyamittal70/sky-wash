@@ -1,15 +1,16 @@
-import PricingFAQ from "../components/pricing/FAQ";
 import PricingHero from "../components/pricing/Hero";
-import PricingTable from "../components/pricing/PricingTable";
-import TrustGuaranteeStrip from "../components/pricing/Trust";
-
+import HomeLinensSection from "../components/pricing/Homeline";
+import MensWearSection from "../components/pricing/Mens";
+import ShoesAndBagsSection from "../components/pricing/Shoes";
+import WomensWearSection from "../components/pricing/Womens";
 export default function PricingPage() {
     return(
         <>
             <PricingHero />
-            <PricingTable />
-            <TrustGuaranteeStrip />
-            <PricingFAQ />
+            <MensWearSection />
+            <WomensWearSection />
+            <HomeLinensSection />
+            <ShoesAndBagsSection />
         </>
     )
 }

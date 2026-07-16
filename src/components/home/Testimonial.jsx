@@ -28,31 +28,6 @@ const testimonials = [
     rating: 5,
     initials: 'AR',
   },
-  {
-    name: 'Karan Sehgal',
-    role: 'Verified Customer · Elm District',
-    quote:
-      "Rescheduling a pickup took ten seconds in the app. Small thing, but it's the reason I've stuck around for over a year.",
-    rating: 5,
-    initials: 'KS',
-  },
-  {
-    name: 'Priya Singh',
-    role: 'Verified Customer · Harbor Row',
-    quote:
-      'Dry cleaning for a wedding suit came back perfectly finished with two days to spare. Support even called to confirm timing.',
-    rating: 5,
-    initials: 'PS',
-    // featured: true,
-  },
-  {
-    name: 'Rahul Kumar',
-    role: 'Verified Customer · Northgate',
-    quote:
-      'Pricing is upfront before you confirm, no surprise charges at delivery. Simple thing most services get wrong.',
-    rating: 5,
-    initials: 'RK',
-  },
 ];
 
 const stats = [
