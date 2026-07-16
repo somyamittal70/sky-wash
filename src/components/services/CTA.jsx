@@ -213,7 +213,7 @@ export default function ServicesCTA() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent z-10 pointer-events-none" />
 
                 <motion.img
-                  src="https://i.pinimg.com/1200x/23/50/14/23501435dcb4df984943b493de38ac04.jpg"
+                  src="https://i.pinimg.com/736x/1b/0d/85/1b0d857b075876d14cc769e2d00aca8d.jpg"
                   alt="Premium laundry folded wardrobe care service"
                   className="w-full h-full object-cover rounded-[2rem] opacity-95"
                   loading="lazy"

@@ -11,7 +11,7 @@ const services = [
     desc: 'Everyday apparel professionally washed, climate-controlled dried, and crisply bundled ready for your wardrobe.',
     price: '150',
     unit: 'kg',
-    image: 'https://i.pinimg.com/736x/c1/ba/1e/c1ba1eeee820e19b061ab0a7574aee67.jpg'
+    image: 'https://i.pinimg.com/736x/85/e1/7f/85e17f3c753d646b45bb09d3c384706e.jpg'
   },
   {
     id: '02',
@@ -20,7 +20,7 @@ const services = [
     desc: 'Delicate non-aqueous solvent extraction routines engineered for custom suits, premium silks, and delicate fabrics.',
     price: '600',
     unit: 'item',
-    image: 'https://i.pinimg.com/1200x/96/3f/1f/963f1fc6e9b32bac9ae7aed374b651dc.jpg'
+    image: 'https://i.pinimg.com/1200x/3a/69/20/3a692002d563a47bc0d6403618552fb3.jpg'
   },
   {
     id: '03',
@@ -29,7 +29,7 @@ const services = [
     desc: 'Accelerated priority processing track with immediate doorstep collection and a strict 12-hour delivery pipeline.',
     price: '850',
     unit: 'order',
-    image: 'https://i.pinimg.com/736x/6b/99/a1/6b99a1f7e74b5286749fe4cee2f58c4e.jpg'
+    image: 'https://i.pinimg.com/1200x/de/44/b6/de44b648e7e925ad0efe878fcd5087fb.jpg'
   },
   {
     id: '04',
@@ -38,7 +38,7 @@ const services = [
     desc: 'Crisp, high-pressure steam alignment tailored perfectly to restore sharp, professional profiles to corporate workwear.',
     price: '220',
     unit: 'item',
-    image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=800&q=80'
+    image: 'https://i.pinimg.com/1200x/99/4d/75/994d7527b14e52e86f1501d39c699553.jpg'
   },
   {
     id: '05',
