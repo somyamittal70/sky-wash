@@ -19,7 +19,7 @@ const galleryItems = [
   { id: 12, category: 'Linens', img: 'https://i.pinimg.com/736x/1f/ed/ed/1feded3bb4b0cc2d7b7abf552b2e2df5.jpg', title: 'Luxury Bedding' },
   { id: 13, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/53/61/23/536123c99d23afb003b9669c91cb4115.jpg', title: 'Freshly Folded', tall: true },
   { id: 14, category: 'Dry Cleaning', img: 'https://i.pinimg.com/736x/60/d9/7b/60d97bcc6e84a7fb9315c91cba60e463.jpg', title: 'Premium Garments' },
-  { id: 15, category: 'Facility', img: 'https://i.pinimg.com/736x/6e/39/ce/6e39ce639789bf41d088565f140364ef.jpg', title: 'Laundry Team' },
+  { id: 15, category: 'Facility', img: 'https://i.pinimg.com/1200x/4a/5a/ff/4a5affe1b922725c983bb4f62a5c827d.jpg', title: 'Laundry Work' },
 ];
 
 const fadeUp = {

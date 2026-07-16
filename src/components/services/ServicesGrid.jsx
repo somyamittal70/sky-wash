@@ -9,7 +9,7 @@ const services = [
     icon: WashingMachine,
     title: 'Wash & Fold',
     desc: 'Everyday apparel professionally washed, climate-controlled dried, and crisply bundled ready for your wardrobe.',
-    price: '150',
+    price: '80',
     unit: 'kg',
     image: 'https://i.pinimg.com/736x/85/e1/7f/85e17f3c753d646b45bb09d3c384706e.jpg'
   },
@@ -18,7 +18,7 @@ const services = [
     icon: Sparkles,
     title: 'Dry Cleaning Matrix',
     desc: 'Delicate non-aqueous solvent extraction routines engineered for custom suits, premium silks, and delicate fabrics.',
-    price: '600',
+    price: '300',
     unit: 'item',
     image: 'https://i.pinimg.com/1200x/3a/69/20/3a692002d563a47bc0d6403618552fb3.jpg'
   },
@@ -27,7 +27,7 @@ const services = [
     icon: Wind,
     title: 'Express Turnaround',
     desc: 'Accelerated priority processing track with immediate doorstep collection and a strict 12-hour delivery pipeline.',
-    price: '850',
+    price: '80',
     unit: 'order',
     image: 'https://i.pinimg.com/1200x/de/44/b6/de44b648e7e925ad0efe878fcd5087fb.jpg'
   },
@@ -36,7 +36,7 @@ const services = [
     icon: ShirtIcon,
     title: 'Ironing & Pressing',
     desc: 'Crisp, high-pressure steam alignment tailored perfectly to restore sharp, professional profiles to corporate workwear.',
-    price: '220',
+    price: '80',
     unit: 'item',
     image: 'https://i.pinimg.com/1200x/99/4d/75/994d7527b14e52e86f1501d39c699553.jpg'
   },
@@ -45,7 +45,7 @@ const services = [
     icon: Bed,
     title: 'Bedding & Linens',
     desc: 'Intense sanitization and deep structural cleansing loops engineered explicitly for heavy duvets and sheets.',
-    price: '1,700',
+    price: '300',
     unit: 'set',
     image: 'https://i.pinimg.com/1200x/03/a5/08/03a5087df701b17fb6721a81eb9e6968.jpg'
   },
@@ -54,7 +54,7 @@ const services = [
     icon: Footprints,
     title: 'Shoe Restoration',
     desc: 'Meticulous micro-dirt extraction, bristle scrubbing, and leather conditioning treatments for luxury footwear.',
-    price: '1,100',
+    price: '200',
     unit: 'pair',
     image: 'https://i.pinimg.com/1200x/32/20/85/322085e91fe7c9cec235c7084ee54789.jpg'
   },

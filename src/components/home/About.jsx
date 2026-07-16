@@ -88,7 +88,7 @@ export default function About() {
               className="rounded-[2.5rem] overflow-hidden border border-[#154088]/15 shadow-xl aspect-[4/5] relative group bg-white"
             >
               <motion.img
-                src="https://i.pinimg.com/736x/4b/26/82/4b268291546b4c6b58393c97947582b7.jpg"
+                src="https://i.pinimg.com/1200x/56/f1/42/56f14219d41c9849136c0c37a6691c97.jpg"
                 alt="Laundry team folding fresh laundry"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
