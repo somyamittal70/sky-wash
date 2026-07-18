@@ -89,7 +89,7 @@ export default function About() {
             >
               <motion.img
                 src="https://i.pinimg.com/1200x/56/f1/42/56f14219d41c9849136c0c37a6691c97.jpg"
-                alt="Laundry team folding fresh laundry"
+                alt="Sky Wash team folding fresh Sky Wash"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -153,7 +153,7 @@ export default function About() {
               variants={fadeUp}
               className="font-['Open_Sans'] mt-6 text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl"
             >
-              Laundary started with a simple truth: laundry shouldn't claim your hard-earned weekends.
+              Sky Wash started with a simple truth: Sky Wash shouldn't claim your hard-earned weekends.
               What began as a single neighborhood drop-off has evolved into a premium, end-to-end
               delivery matrix — yet our fundamental metric remains unchanged: treating your garments with absolute preservation care.
             </motion.p>

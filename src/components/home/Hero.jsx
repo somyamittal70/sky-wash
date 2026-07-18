@@ -37,7 +37,7 @@ export default function Hero() {
       {/* 1. Background Image Layer */}
       <motion.img
         src="https://i.pinimg.com/1200x/26/ff/4a/26ff4a6dc1d227876fa40f3c29b6df2b.jpg"
-        alt="Freshly washed and folded laundry background"
+        alt="Freshly washed and folded Sky Wash background"
         className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-luminosity pointer-events-none"
         initial={{ opacity: 0, scale: 1.08 }}
         animate={{ opacity: 0.25, scale: 1 }}
@@ -65,25 +65,12 @@ export default function Hero() {
             initial="hidden"
             animate="show"
           >
-            <motion.div
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-[#154088]/20 border border-cyan-500/20 backdrop-blur-md rounded-xl px-3.5 py-1.5 mb-6"
-            >
-              <motion.span
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                className="h-1.5 w-1.5 rounded-full bg-cyan-400"
-              />
-              <span className="font-['Nunito'] text-xs font-extrabold uppercase tracking-wider text-cyan-200">
-                Next-Gen Garment Care
-              </span>
-            </motion.div>
 
             <motion.h1
               variants={fadeUp}
               className="font-['Nunito'] text-5xl sm:text-6xl lg:text-[4.2rem] font-black leading-[1.05] text-white tracking-tight"
             >
-              Your laundry, <br />
+              Your Sky Wash, <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-[#9dbbec] to-white">
                 done on demand.
               </span>
@@ -144,7 +131,8 @@ export default function Hero() {
                 whileTap={{ scale: 0.97 }}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] px-8 py-4.5 font-['Nunito'] font-bold text-base text-white border border-white/10 hover:border-white/20 transition-colors"
               >
-                Estimate Pricing
+                View Pricing
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </motion.button>
             </motion.div>
           </motion.div>
@@ -182,7 +170,7 @@ export default function Hero() {
                   {[
                     { id: "wash-fold", label: "Wash & Fold", icon: Droplet, desc: "Everyday apparel" },
                     { id: "dry-clean", label: "Dry Clean", icon: Sparkles, desc: "Delicates & suits" },
-                    { id: "express", label: "Express 12h", icon: Clock, desc: "Priority priority" },
+                    { id: "express", label: "Express 12h", icon: Clock, desc: "For Priority" },
                   ].map((service) => {
                     const Icon = service.icon;
                     const isSelected = selectedService === service.id;
@@ -215,60 +203,6 @@ export default function Hero() {
                     );
                   })}
                 </div>
-              </motion.div>
-
-              {/* Card 2: Simulated Live Progress Tracker (Span 4) */}
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -3 }}
-                className="col-span-6 sm:col-span-4 bg-[#04122d]/40 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-5 shadow-2xl flex flex-col gap-3"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-xs font-black text-white/50 tracking-wider uppercase font-['Nunito']">Live Order Tracker</span>
-                </div>
-
-                <div className="flex flex-col gap-2 mt-1">
-                  <div className="flex justify-between items-center text-xs font-bold">
-                    <span className="text-white">Active Clean Cycle</span>
-                    <span className="text-cyan-400">100% Done</span>
-                  </div>
-                  {/* Styled Progress Bar */}
-                  <div className="h-2 w-full bg-[#000a1c]/60 rounded-full overflow-hidden border border-white/5">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-[#154088] to-cyan-400 rounded-full"
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                    />
-                  </div>
-                  <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-['Nunito'] font-bold">
-                    <span>Pickup</span>
-                    <span>Wash</span>
-                    <span>Iron</span>
-                    <span className="text-cyan-400">Delivery</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 3: Free Pickup Schedule Badge (Span 2) */}
-              <motion.div
-                variants={fadeUp}
-                whileHover={{ y: -3 }}
-                className="col-span-6 sm:col-span-2 bg-gradient-to-br from-[#154088]/30 to-[#0e2c5f]/10 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-5 shadow-2xl flex flex-col items-center justify-center text-center gap-2 group hover:border-cyan-500/20 transition-colors"
-              >
-                <motion.div
-                  className="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center"
-                  whileHover={{ scale: 1.12, rotate: 6 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                >
-                  <Calendar size={18} />
-                </motion.div>
-                <span className="text-[10px] font-black tracking-widest text-white/40 uppercase font-['Nunito']">Pickup Slot</span>
-                <span className="text-xs font-black text-white font-['Nunito']">Today Available</span>
               </motion.div>
 
               {/* Card 4: Micro Stats Bar (Span 6) */}

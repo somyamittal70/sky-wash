@@ -156,10 +156,6 @@ export default function ServicesGrid() {
                         </div>
 
                         <div>
-                          <div className="flex items-center gap-2 text-xs font-mono text-sky-300 font-semibold mb-2">
-                            <RotateCw size={12} className="animate-spin-slow" />
-                            <span>HOVER FOR SPECS</span>
-                          </div>
                           <h3 className="font-['Nunito'] text-2xl font-black tracking-tight text-white leading-snug">
                             {title}
                           </h3>

@@ -19,7 +19,7 @@ const steps = [
     icon: Truck,
     title: 'Pickup',
     subtitle: 'Doorstep collection',
-    desc: 'A dedicated driver picks up your laundry right from your doorstep — you do not even need to be home.',
+    desc: 'A dedicated driver picks up your Sky Wash right from your doorstep — you do not even need to be home.',
     colorClass: 'from-[#154088] to-[#0a1f47]',
     accentBg: 'bg-[#154088]/10',
     accentText: 'text-[#0a1f47]',
@@ -41,7 +41,7 @@ const steps = [
     icon: PackageCheck,
     title: 'Return',
     subtitle: 'Delivered fresh',
-    desc: 'Clean, crisp laundry drops back at your door within 24 hours, perfectly grouped and ready to put away.',
+    desc: 'Clean, crisp Sky Wash drops back at your door within 24 hours, perfectly grouped and ready to put away.',
     colorClass: 'from-[#154088] to-[#0a1f47]',
     accentBg: 'bg-[#0a1f47]/10',
     accentText: 'text-[#0a1f47]',
@@ -97,7 +97,7 @@ export default function HowItWorks() {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="font-['Open_Sans'] text-[#475569] max-w-xs text-sm sm:text-base font-medium leading-relaxed"
           >
-            We've re-engineered laundry care into a highly responsive utility. Tap, track, and relax.
+            We've re-engineered Sky Wash care into a highly responsive utility. Tap, track, and relax.
           </motion.p>
         </div>
 

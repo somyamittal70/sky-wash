@@ -41,7 +41,7 @@ export default function ContactHero() {
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <motion.img
           src="https://i.pinimg.com/736x/ac/24/68/ac2468c818209380f5635e22b9940cdb.jpg"
-          alt="Artisan laundry support infrastructure"
+          alt="Artisan Sky Wash support infrastructure"
           className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
           initial={{ scale: 1.12, opacity: 0 }}
           animate={{ scale: 1.05, opacity: 0.4 }}
@@ -79,20 +79,6 @@ export default function ContactHero() {
           {/* LEFT: Context Copy and Structural Header */}
           <div className="space-y-6 text-left">
 
-            {/* Navigational Segment Path */}
-            <motion.nav
-              initial="hidden"
-              animate="visible"
-              custom={0}
-              variants={fadeUp}
-              aria-label="Breadcrumb"
-              className="flex items-center gap-2 text-xs font-black tracking-wider uppercase text-[#9a9ca1] font-['Nunito']"
-            >
-              <a href="/" className="hover:text-[#154088] transition-colors">Home</a>
-              <ChevronRight size={12} className="text-[#676a73] stroke-[3]" />
-              <span className="text-white">Contact</span>
-            </motion.nav>
-
             {/* Micro-Badge Pill */}
             <motion.div
               initial="hidden"
@@ -117,7 +103,7 @@ export default function ContactHero() {
             >
               Let's get your <br />
               <span className="bg-gradient-to-r from-[#154088] via-[#2a5fb0] to-[#154088] bg-clip-text text-transparent">
-                laundry sorted.
+                Sky Wash sorted.
               </span>
             </motion.h1>
 
@@ -129,7 +115,7 @@ export default function ContactHero() {
               variants={fadeUp}
               className="font-['Open_Sans'] text-base sm:text-lg text-[#9a9ca1] max-w-xl leading-relaxed font-medium"
             >
-              Questions about localized pickup times, enterprise laundry volume discounts, or custom delicate processing profiles? Reach out dynamically through our communication cards.
+              Questions about localized pickup times, enterprise Sky Wash volume discounts, or custom delicate processing profiles? Reach out dynamically through our communication cards.
             </motion.p>
           </div>
 

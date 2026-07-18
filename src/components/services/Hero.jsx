@@ -13,7 +13,7 @@ const servicesData = [
     glowColor: 'bg-[#154088]/10',
     borderColor: 'border-[#154088]/30',
     textColor: 'text-[#5b86c9]',
-    bgImage: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop' // Crisp folded laundry stack
+    bgImage: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop' // Crisp folded Sky Wash stack
   },
   {
     icon: Sparkles,
@@ -110,15 +110,6 @@ export default function ServicesHero() {
 
           {/* LEFT INTERFACE: Dynamic Typography Engine */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <motion.span
-              initial="hidden"
-              animate="visible"
-              custom={0}
-              variants={fadeUp}
-              className="font-['Nunito'] inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#9dbbec] bg-white/5 border border-white/10 rounded-full px-4 py-2 shadow-inner"
-            >
-              Elite Garment Processing
-            </motion.span>
 
             <motion.h1
               initial="hidden"
@@ -168,7 +159,8 @@ export default function ServicesHero() {
                 whileTap={{ scale: 0.97 }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#0a1f47] border border-[#154088]/30 hover:bg-[#0a1f47]/60 hover:border-[#154088]/50 px-8 py-4 font-['Nunito'] font-extrabold text-sm sm:text-base text-white transition-colors duration-300"
               >
-                Review Tier Pricing
+                View Pricing
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </motion.a>
             </motion.div>
 

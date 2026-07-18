@@ -145,7 +145,7 @@ export default function ServicesCTA() {
                 </motion.a>
 
                 <motion.a
-                  href="/contact"
+                  href="/pricing"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 px-8 py-4 font-['Nunito'] font-extrabold text-sm sm:text-base text-[#475569] shadow-sm transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group"
@@ -154,7 +154,7 @@ export default function ServicesCTA() {
                     size={16}
                     className="text-[#94a3b8] group-hover:text-[#64748b] transition-colors"
                   />
-                  Inquire Corporate Rates
+                  View Pricing
                 </motion.a>
               </motion.div>
 

@@ -78,20 +78,6 @@ export default function PricingHero() {
         {/* LEFT RUNWAY: Content Stack Aligned Left */}
         <div className="lg:col-span-7 text-left space-y-8 flex flex-col items-start">
 
-          {/* Decorative Micro-Pill */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 rounded-full bg-[#154088]/20 border border-[#154088]/40 backdrop-blur-md px-4 py-1.5 shadow-lg"
-          >
-            <Tag size={13} className="text-[#9dbbec] stroke-[2.5]" />
-            <span className="font-['Nunito'] text-xs font-black uppercase tracking-widest text-[#9dbbec]">
-              Transparent Pricing
-            </span>
-          </motion.div>
-
           {/* Cinematic Typography Block */}
           <div className="space-y-4">
             <motion.h1
