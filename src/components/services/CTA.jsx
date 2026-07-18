@@ -6,20 +6,21 @@ import {
   ShieldCheck,
   Clock3,
   MessageSquare,
+  Zap,
 } from "lucide-react";
 import BookPickupModal from '../layout/BookPickupModal';
 
 const guarantees = [
   {
-    icon: ShieldCheck,
-    title: "Zero-Risk Care Guarantee",
-    desc: "Full value replacement policy items for total security.",
+    icon: Clock3,
+    title: "24-Hour Express Service",
+    desc: "Need your clothes within 24 hours? Our express service is available with double the standard service charges.",
     iconStyle: "bg-[#154088]/5 text-[#154088] border-[#154088]/15",
   },
   {
-    icon: Clock3,
-    title: "24–48hr Rapid Cycle",
-    desc: "Guaranteed express turnaround from porch back to porch.",
+    icon: Zap,
+    title: "Less Than 24-Hour Priority Service",
+    desc: "For urgent orders requiring delivery in less than 24 hours, priority processing is available with triple the standard service charges.",
     iconStyle: "bg-blue-50 text-[#2d5db0] border-blue-100",
   },
 ];

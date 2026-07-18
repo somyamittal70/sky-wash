@@ -5,20 +5,20 @@ import { Expand, X, ChevronLeft, ChevronRight } from 'lucide-react';
 const filters = ['All', 'Wash & Fold', 'Dry Cleaning', 'Linens', 'Facility'];
 
 const galleryItems = [
-  { id: 1, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/e7/dc/4d/e7dc4d94a4b17bd512c4e6f8a9e77080.jpg', title: 'Folded & Packaged', tall: true },
+  { id: 1, category: 'Wash & Fold', img: '/fold.png', title: 'Folded & Packaged', tall: true },
   { id: 2, category: 'Dry Cleaning', img: 'https://i.pinimg.com/1200x/99/4d/75/994d7527b14e52e86f1501d39c699553.jpg', title: 'Pressed Suits' },
-  { id: 3, category: 'Facility', img: 'https://i.pinimg.com/1200x/cf/e6/a5/cfe6a53a61905710339296e72f4b90f9.jpg', title: 'Our Facility', tall: true },
+  { id: 3, category: 'Facility', img: '/facility.png', title: 'Our Facility', tall: true },
   { id: 4, category: 'Linens', img: 'https://i.pinimg.com/736x/37/c0/66/37c06675926f8c39a12996b5e6b8e164.jpg', title: 'Fresh Linens' },
   { id: 5, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/ea/db/c8/eadbc8c0cecfb6c8f3cf7be9b144ad42.jpg', title: 'Sorted & Ready' },
   { id: 6, category: 'Dry Cleaning', img: 'https://i.pinimg.com/736x/9e/29/07/9e290730f3c85bb4baf5ec870fea5a74.jpg', title: 'Delicate Care' },
   { id: 7, category: 'Facility', img: 'https://i.pinimg.com/1200x/10/48/87/104887907558d85dee545b7ef682d4e3.jpg', title: 'Pickup & Delivery', tall: true },
   { id: 8, category: 'Linens', img: 'https://i.pinimg.com/736x/72/20/00/722000ac3f0a4fd0e340877b03e87f8a.jpg', title: 'Bedding Sets' },
-  { id: 9, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/bb/ac/04/bbac042ee75a852f4ab4bff0a5dc79f6.jpg', title: 'Fresh Laundry' },
-  { id: 10, category: 'Dry Cleaning', img: 'https://i.pinimg.com/736x/c0/6d/3d/c06d3d2bdcc01252105ac3ea0c333243.jpg', title: 'Professional Cleaning', tall: true },
+  { id: 9, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/4f/bc/9d/4fbc9d50bbd25589bf79e014c69067c8.jpg', title: 'Fresh Laundry' },
+  { id: 10, category: 'Dry Cleaning', img: '/clean.png', title: 'Professional Cleaning', tall: true },
   { id: 11, category: 'Facility', img: 'https://i.pinimg.com/1200x/62/15/47/6215473d801300865e144308f5f4747d.jpg', title: 'Modern Equipment', tall: true },
   { id: 12, category: 'Linens', img: 'https://i.pinimg.com/736x/1f/ed/ed/1feded3bb4b0cc2d7b7abf552b2e2df5.jpg', title: 'Luxury Bedding' },
-  { id: 13, category: 'Wash & Fold', img: 'https://i.pinimg.com/1200x/53/61/23/536123c99d23afb003b9669c91cb4115.jpg', title: 'Freshly Folded', tall: true },
-  { id: 14, category: 'Dry Cleaning', img: 'https://i.pinimg.com/736x/60/d9/7b/60d97bcc6e84a7fb9315c91cba60e463.jpg', title: 'Premium Garments' },
+  { id: 13, category: 'Wash & Fold', img: '/bags.png', title: 'Freshly Folded', tall: true },
+  { id: 14, category: 'Dry Cleaning', img: '/garment.png', title: 'Premium Garments' },
   { id: 15, category: 'Facility', img: 'https://i.pinimg.com/1200x/4a/5a/ff/4a5affe1b922725c983bb4f62a5c827d.jpg', title: 'Laundry Work' },
 ];
 
